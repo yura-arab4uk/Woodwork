@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<context:property-placeholder location="classpath:app.properties" />
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<bean class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<sec:http use-expressions="true">
+		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<sec:intercept-url pattern="/cart/**" access="isAuthenticated()" />
+		<!-- access denied page -->
+		<sec:access-denied-handler error-page="/403" />
+		<sec:form-login 
+		login-page="/login" 
+		default-target-url="/"
+		authentication-failure-url="/login?error" 
+		username-parameter="username"
+		password-parameter="password" />
+		<sec:logout logout-success-url="/login?logout" />
+		<sec:csrf />
+	</sec:http>
+
+	<sec:authentication-manager>
+		<sec:authentication-provider>
+		 <sec:password-encoder hash="md5"/>
+			<sec:jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="SELECT u.email,u.password,u.enabled FROM user u WHERE u.email=?"
+				authorities-by-username-query="SELECT u.email,u.role FROM user u WHERE u.email=?" />
+		 </sec:authentication-provider>
+	</sec:authentication-manager>
+	
+</beans>
