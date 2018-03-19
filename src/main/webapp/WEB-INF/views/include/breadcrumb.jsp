@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <ul class="breadcrumb">
-<li><a href="${pageContext.request.contextPath}">Home</a></li>
+<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 <c:forEach items="${parentCategories}" var="category" varStatus="status">
 
 <c:if test="${not status.last}">   
