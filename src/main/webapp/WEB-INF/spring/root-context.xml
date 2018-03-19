@@ -22,7 +22,7 @@
 	<bean class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<sec:http use-expressions="true">
 		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<sec:intercept-url pattern="/cart/**" access="isAuthenticated()" />

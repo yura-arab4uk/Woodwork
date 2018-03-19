@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
--- Host: localhost    Database: woodwork
+-- Host: localhost    Database: webstore
 -- ------------------------------------------------------
 -- Server version	5.5.51
 
