@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: webstore
+-- Host: localhost    Database: woodwork
 -- ------------------------------------------------------
--- Server version	5.5.51
+-- Server version	5.7.21-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -123,7 +123,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`),
   KEY `fk_Lots_Categories1_idx` (`category_id`),
   CONSTRAINT `fk_Product_Category1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +132,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Двері нові D1','Якість понад усе','new',9,6300,'1.png',1),(2,'Двері ок D2','Не пожалієте','new',10,4000,'2.png',1),(4,'Двері звичайні D3','Краще не буває','new',9,7000,'3.png',1),(5,'Двері D10','Швидко виготовляються','new',10,4500,'4.png',1),(6,'Двері сильні D7','Хіт сезону','new',10,5000,'5.png',1),(7,'Вікно заводське W1','якість понад усе','new',3,3000,'6.png',1),(8,'Вікно W2','Хіт сезону','new',3,2000,'7.png',1),(9,'Лиштва F1','Найкраще','new',5,100,'8.png',1),(10,'Лиштва крута F2','Популярні','new',5,120,'9.png',1),(11,'Лиштва вічна F3','Найкраща кондиція','new',5,140,'10.png',1),(12,'Скло G1','надміцне','used',7,200,'11.png',1),(13,'Скло клас G2','міцне','new',7,250,'12.png',1),(14,'Скло G3','краса','new',7,300,'13.png',1),(15,'Замок перший L1','ніхто не пройде','new',15,600,'14.png',1),(16,'Замок другий L2','не пробуйте','new',16,700,'15.png',1),(17,'Замок шик L3','кращих не буває','new',15,800,'16.png',1),(18,'Шпінгалет C1','шпінгалет бест','used',6,200,'17.png',1),(19,'Шпінгалет клас C2','міцність перше','new',6,250,'18.png',1),(20,'Завіса K1','Врізні','used',12,100,'19.png',1),(21,'Завіса K2','Чопові','used',11,150,'20.png',1),(22,'Завіса кулK3','Врізні','new',12,110,'21.png',1),(23,'Двері повітря D5','Надлегкі','new',10,7000,'22.png',1),(85,'Бомбезний замок','Якість неперевершена','new',16,250,'24.png',1),(86,'1111','1111111','new',3,9999,'86.png',1),(87,'15','5','new',3,5,'87.png',1),(88,'gfdg','gdfg','new',3,42949,'88.png',1),(89,'32','233','new',5,321,'89.png',1);
+INSERT INTO `product` VALUES (1,'Doors new D1','Simple and great','new',9,6300,'1.png',1),(2,'Doors ок D2','Won\'t regret if try','new',10,4000,'2.png',1),(4,'Doors simple D3','Best in 2017','new',9,7000,'3.png',1),(5,'Doors D10','Fast created','new',10,4500,'4.png',1),(6,'Doorsі strong D7','Great','new',10,5000,'5.png',1),(7,'Window factory W1','Good quality','new',3,3000,'6.png',1),(8,'Window W2','Best of this season','new',3,2000,'7.png',1),(9,'Welt  F1','Good','new',5,100,'8.png',1),(10,'Welt cool F2','Popular','new',5,120,'9.png',1),(11,'Welt experience F3','Best condition','new',5,140,'10.png',1),(12,'Glass G1','Super power','used',7,200,'11.png',1),(13,'Glass G2','Really strong','new',7,250,'12.png',1),(14,'Glass evening G3','Beauty','new',7,300,'13.png',1),(15,'Lock first L1','Nobody','new',15,600,'14.png',1),(16,'Lock second L2','Don\'t try it\'s cool','new',16,700,'15.png',1),(17,'Lock chick L3','One of the best','new',15,800,'16.png',1),(18,'Catch C1','Best','used',6,200,'17.png',1),(19,'Catch C2','Might','new',6,250,'18.png',1),(20,'Завіса K1','Mortise','used',12,100,'19.png',1),(21,'Завіса K2','Chopovi','used',11,150,'20.png',1),(22,'Завіса K3','Mortise','new',12,110,'21.png',1),(23,'Doors air D5','Super light','new',10,7000,'22.png',1),(85,'Cool lock','Best quality','new',16,250,'24.png',1);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +161,7 @@ CREATE TABLE `product_has_property` (
 
 LOCK TABLES `product_has_property` WRITE;
 /*!40000 ALTER TABLE `product_has_property` DISABLE KEYS */;
-INSERT INTO `product_has_property` VALUES (1,1,'Дуб,Ялина',1),(2,1,'Ялина',1),(4,1,'Дуб',1),(5,1,'Ялина',1),(6,1,'Граб',1),(23,1,'Граб,Ялина',1),(89,5,'231',1);
+INSERT INTO `product_has_property` VALUES (1,1,'Дуб,Ялина',1),(2,1,'Ялина',1),(4,1,'Дуб',1),(5,1,'Ялина',1),(6,1,'Граб',1),(23,1,'Граб,Ялина',1);
 /*!40000 ALTER TABLE `product_has_property` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,7 +245,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'aaa@mail.com','abb',970000011,'Стів','Джобс',1,'b59c67bf196a4758191e42f76670ceba','ROLE_ADMIN'),(2,'bbb@mail.com','bbb',973333333,'Аня','Кудрява',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(3,'ссс@mail.com','ccc',978888888,'Гріша','Білявський1',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(4,'ddd@mail.com','ddd',917777777,'Оля','Гавадзин',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(5,'eee@ukr.net','eee',973332355,'Михась','Заліський',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(6,'ggg@ukr.net','ggg',687777789,'Павло','Котовський',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(7,'uuu@gmai.com','dfd',665566765,'Андрій1','Зарубіжний',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(8,'kjl@jl.com','fdfd',665564444,'Антон','Заник',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(16,'qqq@ukr.net','qqq',973333334,'Василь','Петровський1',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(17,'fd@fd','fr',33,'vcvc','fd',1,'0ded1aa71dc2ea6aebbd43a7d06b19d0','ROLE_USER'),(18,'aaa@mail.com1','s',3,'s','s',1,'0b4e7a0e5fe84ad35fb5f95b9ceeac79','ROLE_USER'),(19,'aaa@mail.comd','fdf',970004011,'Мирон','Калаш',1,'0b4e7a0e5fe84ad35fb5f95b9ceeac79','ROLE_USER');
+INSERT INTO `user` VALUES (1,'aaa@mail.com','abb',970000011,'Steve','Jobs',1,'b59c67bf196a4758191e42f76670ceba','ROLE_ADMIN'),(2,'bbb@mail.com','bbb',973333333,'Margaret','Thatcher',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(3,'ссс@mail.com','ccc',978888888,'Winston','Churchill',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(4,'ddd@mail.com','ddd',917777777,'Rosa','Parks',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(5,'eee@ukr.net','eee',973332355,'Bill','Gates',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(6,'ggg@ukr.net','ggg',687777789,'Thomas','Edison',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(7,'uuu@gmai.com','dfd',665566765,'Desmond','Tutu',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(8,'kjl@jl.com','fdfd',665564444,'Walt','Disney',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(16,'qqq@ukr.net','qqq',973333334,'Malcolm','X',1,'b59c67bf196a4758191e42f76670ceba','ROLE_USER'),(17,'fd@fd','frf',333,'Angelina','Jolie',1,'0ded1aa71dc2ea6aebbd43a7d06b19d0','ROLE_USER'),(18,'aaa@mail.com1','s',3,'Michael','Jordon',1,'0b4e7a0e5fe84ad35fb5f95b9ceeac79','ROLE_USER'),(19,'aaa@mail.comd','fdf',970004011,'John','Lennon',1,'0b4e7a0e5fe84ad35fb5f95b9ceeac79','ROLE_USER');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -258,4 +258,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-15 21:07:07
+-- Dump completed on 2018-03-20 13:27:09
