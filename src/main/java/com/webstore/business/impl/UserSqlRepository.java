@@ -17,16 +17,16 @@ public class UserSqlRepository extends SqlRepository<User> {
 
 	@Override
 	public void add(Iterable<User> items) {
-		
             for (User u : items) {
             	jdbcTemplate.update(
-        				"insert into user values(?,?,?,?,?,?,?,md5(?),?)",
-        				new Object[]{null,u.getEmail(),u.getLogin(),
-        						u.getPhone_number(),u.getFirstname(),
-        						u.getLastname(),1,u.getPassword(),"ROLE_USER"});
-              
+        				"insert into user values(?,?,?,?,?,?,?,md5(?),?)", getParamsForAdd(u));
             }
+	}
 
+	Object[] getParamsForAdd(User u) {
+		return new Object[] { null,u.getEmail(),u.getLogin(),
+				u.getPhone_number(),u.getFirstname(),
+				u.getLastname(),1,u.getPassword(),"ROLE_USER" };
 	}
 
 	@Override
@@ -56,7 +56,10 @@ public class UserSqlRepository extends SqlRepository<User> {
 	public void remove(User u) {
 		jdbcTemplate.update("update user set enabled=0 where id="+u.getId());
 		jdbcTemplate.update("update woodwork.order set enabled=?,status_id=?,status_description=? where user_id=?",
-				new Object[]{0,4,"This user has been deleted",u.getId()});
+				getParamsForRemove(u));
 	}
 
+	Object[] getParamsForRemove(User u) {
+		return new Object[]{0,4,"This user has been deleted" ,u.getId()};
+	}
 }

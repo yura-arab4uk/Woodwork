@@ -43,7 +43,6 @@ public abstract class SqlRepository<T> implements Repository<T> {
 		
 		@Override
 		public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
-
 			return rs.getInt("count");
 		}
 	}
@@ -54,5 +53,5 @@ public abstract class SqlRepository<T> implements Repository<T> {
 		return jdbcTemplate.queryForObject(
 				sqlSpecification.toSqlQuery(),new CountRowMapper());
 	}
-	
+
 }
